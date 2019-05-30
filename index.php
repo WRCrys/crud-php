@@ -9,7 +9,8 @@
 <body>
     <?php
     include("Class/Connection.php");
-    $Conexao = new Connection();
+    $Conexao = new ConnectionTest();
+    $Conexao->connectDB();
     ?>
 </body>
 </html>

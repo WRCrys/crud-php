@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Class Crud</title>
     <link rel="stylesheet" href="style.css">
+    <script src="zepto.min.js"></script>
+    <script src="../Javascript.js"></script>
 </head>
 
 <body>
@@ -14,8 +16,8 @@
         <img src="Images/banner.jpg" alt="Banner Crud" />
     </div>
     <div class="Nav">
-        <li><a href="cadastro">Cadastro</a></li>
-        <li><a href="selecao">Seleção</a></li>
-        <li><a href="delete">Delete</a></li>
-        <li><a href="atualizacao">Atualização</a></li>
+        <li><a href="cadastro.php">Cadastro</a></li>
+        <li><a href="selecao.php">Seleção</a></li>
+        <li><a href="delete.php">Delete</a></li>
+        <li><a href="atualizacao.php">Atualização</a></li>
     </div>

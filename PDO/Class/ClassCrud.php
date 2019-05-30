@@ -1,34 +1,49 @@
 <?php
 
+include("../Class/Connection.php");
+
 class ClassCrud extends Connection
 {
     /**
      * Atributos
      */
 
-     private $Crud;
-     private $Contador;
+    private $Crud;
+    private $Contador;
 
-     /**
-      * Preparação das declarativas
-      */
+    /**
+     * Preparação das declarativas
+     */
 
-      public function preparedStatements($Query, $Params) {
-          $this->countParams($Params);
-          $this->Crud = $this->connectDB()->prepare($Query);
+    public function preparedStatementsPDO($Query)
+    {
+        // $this->countParams($Params);
+        var_dump($Query);
+        $this->Crud = $this->connectDB()->prepare($Query);
 
-          for($i = 1; $i <= $this->Contador; $i++){
-            $this->Crud->bindValue($i,$Params[$i-1]);
-        }
+        // for ($i = 1; $i <= $this->Contador; $i++) {
+            // $this->Crud->bindValue($i, $Params[$i - 1]);
+        // }
 
         $this->Crud->execute();
-      }
+    }
 
-      /**
-       * Contador de parametros
-       */
+    /**
+     * Contador de parametros
+     */
 
-       private function countParams($params) {
-           $this->Contador = count($params);
-       }
+    private function countParams($params)
+    {
+        $this->Contador = count($params);
+    }
+
+    /**
+     * Operações SQL
+     */
+
+    public function insertDB($Table, $Condicao)
+    {
+        $this->preparedStatementsPDO("insert into {$Table} values ({$Condicao})");
+        return $this->Crud;
+    }
 }

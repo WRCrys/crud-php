@@ -1,15 +1,14 @@
 <?php
 
-abstract class Connection {
+class ConnectionTest {
 
-    protected function connectDB() {
+    public function connectDB() {
         try {
-            $con = new PDO("mysql:host=localhost;dbname=crud","root","camaro");
-            return $con;
-        } catch (PDOException $error) {
-            //throw $error;
-            return $error->getMessage();
-        }
+            $conn = new PDO('mysql:host=localhost;dbname=crud', 'root', '');
+              $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          } catch(PDOException $e) {
+              echo 'ERROR: ' . $e->getMessage();
+          }
     }
 
 }
